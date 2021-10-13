@@ -1,5 +1,5 @@
 import React from "react";
-import UsersList from "../Components/UsersList/UsersList";
+import UsersList from "../Components/Organisms/UsersList/UsersList";
 import styled from "styled-components";
 
 const Wrapper = styled.div`

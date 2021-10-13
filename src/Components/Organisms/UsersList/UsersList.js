@@ -1,6 +1,6 @@
 import React from "react";
-import { users } from "../../Data/Users";
-import UserItemList from "../UserItemList/UserItemList";
+import { users } from "../../../Data/Users";
+import UserItemList from "../../Molecules/UserItemList/UserItemList";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -12,13 +12,19 @@ const Wrapper = styled.div`
   box-shadow: 0 5px 15px -10px rgba(0, 0, 0, 0.3);
 `;
 
+const StyledList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;
+
 const UsersList = () => (
   <Wrapper>
-    <ul>
+    <StyledList>
       {users.map((userData) => (
         <UserItemList userData={userData} />
       ))}
-    </ul>
+    </StyledList>
   </Wrapper>
 );
 

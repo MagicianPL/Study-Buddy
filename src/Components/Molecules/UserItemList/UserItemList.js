@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "../../Atoms/Button/Button";
 
 const Wrapper = styled.li`
   display: flex;
@@ -23,7 +24,7 @@ const UserItemList = ({ userData: { average, name, attendance } }) => (
       <p>{name}</p>
       <p>{attendance}</p>
     </div>
-    <button>x</button>
+    <Button />
   </Wrapper>
 );
 
