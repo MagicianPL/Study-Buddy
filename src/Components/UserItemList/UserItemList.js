@@ -16,6 +16,15 @@ const Wrapper = styled.li`
   }
 `;
 
+const StyledButton = styled.button`
+  width: 25px;
+  height: 25px;
+  background-color: #c0c7d6;
+  border-radius: 50px;
+  border: none;
+  color: whote;
+`;
+
 const UserItemList = ({ userData: { average, name, attendance } }) => (
   <Wrapper>
     <div>{average}</div>
@@ -23,7 +32,7 @@ const UserItemList = ({ userData: { average, name, attendance } }) => (
       <p>{name}</p>
       <p>{attendance}</p>
     </div>
-    <button>x</button>
+    <StyledButton>x</StyledButton>
   </Wrapper>
 );
 
