@@ -1,6 +1,7 @@
 import React from "react";
 import UsersList from "../Components/Organisms/UsersList/UsersList";
 import styled from "styled-components";
+import { GlobalStyles } from "../Assets/styles/GlobalStyles";
 
 const Wrapper = styled.div`
   background-color: #f7f8fa;
@@ -12,9 +13,12 @@ const Wrapper = styled.div`
 `;
 
 const Root = () => (
-  <Wrapper>
-    <UsersList />
-  </Wrapper>
+  <>
+    <GlobalStyles />
+    <Wrapper>
+      <UsersList />
+    </Wrapper>
+  </>
 );
 
 export default Root;
