@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-
+import { StyledAverage } from "../../Atoms/StyledAverage/StyledAverage";
+import UserInfo from "../../Atoms/UserInfo/UserInfo";
 import Button from "../../Atoms/Button/Button";
 
 const Wrapper = styled.li`
@@ -18,27 +19,10 @@ const Wrapper = styled.li`
   }
 `;
 
-const Average = styled.div`
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 24px;
-  font-size: ${({ theme }) => theme.fontSize.m};
-  background-color: ${({ average, theme }) =>
-    average <= 3 ? theme.colors.error : average < 4 ? theme.colors.warning : theme.colors.success};
-  color: white;
-`;
-
 const UserItemList = ({ userData: { average, name, attendance } }) => (
   <Wrapper>
-    <Average average={average}>{average}</Average>
-    <div>
-      <p>{name}</p>
-      <p>{attendance}</p>
-    </div>
+    <StyledAverage average={average}>{average}</StyledAverage>
+    <UserInfo name={name} attendance={attendance} />
     <Button />
   </Wrapper>
 );

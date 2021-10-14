@@ -3,15 +3,16 @@ import styled from "styled-components";
 import { ReactComponent as DeleteIcon } from "../../../Assets/icons/delete-icon.svg";
 
 const StyledButton = styled.button`
-  width: 25px;
-  height: 25px;
+  width: 23px;
+  height: 23px;
   background-color: ${({ theme }) => theme.colors.grey};
   border-radius: 50px;
   border: none;
-  color: whote;
+  color: white;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-self: flex-start;
+  margin-top: 33px;
 
   svg {
     width: 100%;
