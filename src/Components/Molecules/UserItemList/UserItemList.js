@@ -2,7 +2,7 @@ import React from "react";
 import { Wrapper } from "./UserItemList.styles";
 import { StyledAverage } from "../../Atoms/StyledAverage/StyledAverage";
 import UserInfo from "../../Atoms/UserInfo/UserInfo";
-import Button from "../../Atoms/Button/Button";
+import Button from "../../Atoms/DeleteButton/DeleteButton";
 
 const UserItemList = ({ deleteUser, userData: { average, name, attendance } }
 ) => (
