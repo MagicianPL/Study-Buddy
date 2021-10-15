@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { LogoStyled } from "../../Atoms/Logo/LogoStyled";
+import { Link } from "react-router-dom";
+
+const linkStyle = {
+  textDecoration: "none",
+  color: "inherit",
+};
 
 const Nav = styled.nav`
   height: 100%;
@@ -23,6 +29,10 @@ const Nav = styled.nav`
     margin-bottom: 20px;
     color: #737c8e;
   }
+
+  li:hover {
+    cursor: pointer;
+  }
 `;
 
 const Navigation = () => {
@@ -34,8 +44,18 @@ const Navigation = () => {
         Buddy
       </LogoStyled>
       <ul>
-        <li>Home</li>
-        <li>Add Student</li>
+        <li>
+          <Link to="/" style={linkStyle}>
+            Dashboard
+          </Link>
+        </li>
+        <li>
+          <Link to="/add-user" style={linkStyle}>
+            Add User
+          </Link>
+        </li>
+        <li>Settings</li>
+        <li>Logout</li>
       </ul>
     </Nav>
   );

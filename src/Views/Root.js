@@ -6,6 +6,7 @@ import { GlobalStyles } from "../Assets/styles/GlobalStyles";
 import { theme } from "../Assets/styles/theme";
 import Navigation from "../Components/Organisms/Navigation/Navigation.styled";
 import FormAddStudent from "../Components/Organisms/FormAddStudent/FormAddStudent";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGrey};
@@ -54,18 +55,26 @@ const Root = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Wrapper>
-        <Navigation />
-        <UsersList usersList={usersList} deleteUser={deleteUser} />
-        <FormAddStudent
-          formStates={formStates}
-          handleInputChange={handleInputChange}
-          handleAddUser={handleAddUser}
-        />
-      </Wrapper>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Wrapper>
+          <Navigation />
+          <Switch>
+            <Route path="/" exact>
+              <UsersList usersList={usersList} deleteUser={deleteUser} />
+            </Route>
+            <Route path="/add-user">
+              <FormAddStudent
+                formStates={formStates}
+                handleInputChange={handleInputChange}
+                handleAddUser={handleAddUser}
+              />
+            </Route>
+          </Switch>
+        </Wrapper>
+      </ThemeProvider>
+    </Router>
   );
 };
 
