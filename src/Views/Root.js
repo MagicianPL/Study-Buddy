@@ -3,6 +3,7 @@ import UsersList from "../Components/Organisms/UsersList/UsersList";
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../Assets/styles/GlobalStyles";
 import { theme } from "../Assets/styles/theme";
+import Navigation from "../Components/Organisms/Navigation/Navigation.styled";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGrey};
@@ -10,13 +11,14 @@ const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 `;
 
 const Root = () => (
   <ThemeProvider theme={theme}>
     <GlobalStyles />
     <Wrapper>
+      <Navigation />
       <UsersList />
     </Wrapper>
   </ThemeProvider>

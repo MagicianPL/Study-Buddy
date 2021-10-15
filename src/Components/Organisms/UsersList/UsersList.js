@@ -44,7 +44,7 @@ const UsersList = () => {
 
   return (
     <>
-      <Wrapper as="form">
+      {/*<Wrapper as="form">
         <h1>Add Student</h1>
         <FormField
           label="Name"
@@ -70,7 +70,7 @@ const UsersList = () => {
         <Button type="submit" onClick={handleAddUser}>
           ADD
         </Button>
-      </Wrapper>
+  </Wrapper>*/}
       <Wrapper>
         <h1>Students List</h1>
         <StyledList>
