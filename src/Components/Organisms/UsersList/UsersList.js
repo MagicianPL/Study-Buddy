@@ -26,9 +26,25 @@ const UsersList = () => {
     });
   };
 
+  const handleAddUser = (e) => {
+    e.preventDefault();
+    const newUser = {
+      name: formStates.name,
+      attendance: formStates.attendance,
+      average: formStates.average,
+    };
+
+    setUsersList([newUser, ...usersList]);
+    setFormStates({
+      name: "",
+      attendance: "",
+      average: "",
+    });
+  };
+
   return (
     <>
-      <Wrapper>
+      <Wrapper as="form">
         <h1>Add Student</h1>
         <FormField
           label="Name"
@@ -51,7 +67,9 @@ const UsersList = () => {
           value={formStates.average}
           onChange={handleInputChange}
         />
-        <Button>ADD</Button>
+        <Button type="submit" onClick={handleAddUser}>
+          ADD
+        </Button>
       </Wrapper>
       <Wrapper>
         <h1>Students List</h1>
