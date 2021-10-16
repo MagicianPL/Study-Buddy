@@ -6,9 +6,25 @@ import { NavLink } from "react-router-dom";
 const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: inherit;
+  position: relative;
+
+  &::after {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -24px;
+    background-color: ${({ theme }) => theme.colors.darkPurple};
+  }
 
   &.active {
-    color: red;
+    &::after {
+      opacity: 1;
+    }
   }
 `;
 
