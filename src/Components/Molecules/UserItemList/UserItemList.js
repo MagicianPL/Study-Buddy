@@ -3,7 +3,7 @@ import { Wrapper } from "./UserItemList.styles";
 import { StyledAverage } from "../../Atoms/StyledAverage/StyledAverage";
 import UserInfo from "../../Atoms/UserInfo/UserInfo";
 import Button from "../../Atoms/DeleteButton/DeleteButton";
-import { UsersContext } from "../../../Views/Root";
+import { UsersContext } from "../../../Providers/UsersProvider";
 
 const UserItemList = ({userData: { average, name, attendance }}) => {
   const context = useContext(UsersContext);

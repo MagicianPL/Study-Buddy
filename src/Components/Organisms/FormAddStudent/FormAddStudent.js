@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Wrapper } from "../../Organisms/UsersList/UsersList.styles";
 import FormField from "../../Molecules/FormField/FormField";
 import { Button } from "../../Atoms/Button/Button.styled";
-import { UsersContext } from "../../../Views/Root";
+import { UsersContext } from "../../../Providers/UsersProvider";
 
 const FormAddStudent = () => {
   const context = useContext(UsersContext);

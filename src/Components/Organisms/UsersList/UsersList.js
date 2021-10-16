@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import { UsersContext } from "../../../Views/Root";
+import { UsersContext } from "../../../Providers/UsersProvider";
 import UserItemList from "../../Molecules/UserItemList/UserItemList";
 import { Wrapper, StyledList } from "./UsersList.styles";
 
