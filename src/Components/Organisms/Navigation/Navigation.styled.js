@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { LogoStyled } from "../../Atoms/Logo/LogoStyled";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: inherit;
+
+  &.active {
+    color: red;
+  }
 `;
 
 const Nav = styled.nav`
@@ -48,7 +52,9 @@ const Navigation = () => {
       </LogoStyled>
       <ul>
         <li>
-          <StyledLink to="/">Dashboard</StyledLink>
+          <StyledLink to="/" exact>
+            Dashboard
+          </StyledLink>
         </li>
         <li>
           <StyledLink to="/add-user">Add User</StyledLink>
