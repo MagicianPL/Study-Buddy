@@ -7,6 +7,7 @@ import { UsersContext } from "../../../Providers/UsersProvider";
 const FormAddStudent = () => {
   const context = useContext(UsersContext);
 
+  //in fact - input states
   const [formStates, setFormStates] = useState({
     name: "",
     attendance: "",
@@ -22,8 +23,9 @@ const FormAddStudent = () => {
 
   const handleSubmitUser = (e) => {
     e.preventDefault();
+    //from context i'm getting function which will add user - it takes argument (values from inputs)
     context.handleAddUser(formStates);
-
+    //clear all inputs
     setFormStates({
       name: "",
       attendance: "",

@@ -4,6 +4,7 @@ import { users } from "../Data/Users";
 export const UsersContext = React.createContext();
 
 const UsersProvider = ({ children }) => {
+  //list of students from file
   const [usersList, setUsersList] = useState(users);
 
   const deleteUser = (userName) => {
