@@ -1,16 +1,18 @@
-import React from "react";
+import React, {useContext} from "react";
+import { UsersContext } from "../../../Views/Root";
 import UserItemList from "../../Molecules/UserItemList/UserItemList";
 import { Wrapper, StyledList } from "./UsersList.styles";
 
-const UsersList = ({ usersList, deleteUser }) => {
+const UsersList = () => {
+  const context = useContext(UsersContext);
+
   return (
     <Wrapper>
       <h1>Students List</h1>
       <StyledList>
-        {usersList.map((userData, index) => (
+        {context.usersList.map((userData, index) => (
           <UserItemList
             userData={userData}
-            deleteUser={deleteUser}
             key={userData.name}
           />
         ))}

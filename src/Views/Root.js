@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DashboardView from "./DashboardView";
 import AddNewUserView from "./AddNewUserView";
 
+export const UsersContext = React.createContext();
+
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGrey};
   width: 100%;
@@ -60,14 +62,26 @@ const Root = () => {
         <GlobalStyles />
         <Wrapper>
           <Navigation />
-          <Switch>
-            <Route path="/" exact>
-              <DashboardView usersList={usersList} deleteUser={deleteUser} />
-            </Route>
-            <Route path="/add-user">
-              <AddNewUserView formStates={formStates} handleInputChange={handleInputChange} handleAddUser={handleAddUser} />
-            </Route>
-          </Switch>
+          <UsersContext.Provider
+            value={{
+              usersList,
+              deleteUser,
+              handleAddUser,
+            }}
+          >
+            <Switch>
+              <Route path="/" exact>
+                <DashboardView usersList={usersList} deleteUser={deleteUser} />
+              </Route>
+              <Route path="/add-user">
+                <AddNewUserView
+                  formStates={formStates}
+                  handleInputChange={handleInputChange}
+                  handleAddUser={handleAddUser}
+                />
+              </Route>
+            </Switch>
+          </UsersContext.Provider>
         </Wrapper>
       </ThemeProvider>
     </Router>
