@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { LogoStyled } from "../../Atoms/Logo/LogoStyled";
 import { Link } from "react-router-dom";
 
-const linkStyle = {
-  textDecoration: "none",
-  color: "inherit",
-};
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
 
 const Nav = styled.nav`
   align-self: stretch;
@@ -29,6 +29,8 @@ const Nav = styled.nav`
   li {
     margin-bottom: 20px;
     color: #737c8e;
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.darkGray};
   }
 
   li:hover {
@@ -46,14 +48,10 @@ const Navigation = () => {
       </LogoStyled>
       <ul>
         <li>
-          <Link to="/" style={linkStyle}>
-            Dashboard
-          </Link>
+          <StyledLink to="/">Dashboard</StyledLink>
         </li>
         <li>
-          <Link to="/add-user" style={linkStyle}>
-            Add User
-          </Link>
+          <StyledLink to="/add-user">Add User</StyledLink>
         </li>
         <li>Settings</li>
         <li>Logout</li>
