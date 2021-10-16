@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import UsersList from "../Components/Organisms/UsersList/UsersList";
 import { users } from "../Data/Users";
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../Assets/styles/GlobalStyles";
 import { theme } from "../Assets/styles/theme";
 import Navigation from "../Components/Organisms/Navigation/Navigation.styled";
-import FormAddStudent from "../Components/Organisms/FormAddStudent/FormAddStudent";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import DashboardView from "./DashboardView";
+import AddNewUserView from "./AddNewUserView";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGrey};
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: start;
@@ -27,7 +27,7 @@ const Root = () => {
 
   const deleteUser = (userName) => {
     const filteredArr = usersList.filter((user) => user.name !== userName);
-
+    console.log(filteredArr);
     setUsersList(filteredArr);
   };
 
@@ -62,14 +62,10 @@ const Root = () => {
           <Navigation />
           <Switch>
             <Route path="/" exact>
-              <UsersList usersList={usersList} deleteUser={deleteUser} />
+              <DashboardView usersList={usersList} deleteUser={deleteUser} />
             </Route>
             <Route path="/add-user">
-              <FormAddStudent
-                formStates={formStates}
-                handleInputChange={handleInputChange}
-                handleAddUser={handleAddUser}
-              />
+              <AddNewUserView formStates={formStates} handleInputChange={handleInputChange} handleAddUser={handleAddUser} />
             </Route>
           </Switch>
         </Wrapper>

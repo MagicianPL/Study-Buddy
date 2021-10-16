@@ -9,8 +9,9 @@ const linkStyle = {
 };
 
 const Nav = styled.nav`
-  height: 100%;
-  max-width: 110px;
+  align-self: stretch;
+  width: 150px;
+  max-width: 100%;
   border-right: 1px solid #dfe2e8;
   background-color: #e5e5e5;
 
@@ -19,7 +20,7 @@ const Nav = styled.nav`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    padding: 0 24px 0 15px;
+    padding: 0 24px 0 30px;
     font-weight: bold;
     list-style: none;
     font-size: ${({ theme }) => theme.fontSize.s};
