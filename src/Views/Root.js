@@ -21,11 +21,7 @@ const Wrapper = styled.div`
 
 const Root = () => {
   const [usersList, setUsersList] = useState(users);
-  const [formStates, setFormStates] = useState({
-    name: "",
-    attendance: "",
-    average: "",
-  });
+  
 
   const deleteUser = (userName) => {
     const filteredArr = usersList.filter((user) => user.name !== userName);
@@ -33,27 +29,16 @@ const Root = () => {
     setUsersList(filteredArr);
   };
 
-  const handleInputChange = (e) => {
-    setFormStates({
-      ...formStates,
-      [e.target.name]: e.target.value,
-    });
-  };
+  
 
-  const handleAddUser = (e) => {
-    e.preventDefault();
+  const handleAddUser = (formValues) => {
     const newUser = {
-      name: formStates.name,
-      attendance: formStates.attendance,
-      average: formStates.average,
+      name: formValues.name,
+      attendance: formValues.attendance,
+      average: formValues.average,
     };
 
     setUsersList([newUser, ...usersList]);
-    setFormStates({
-      name: "",
-      attendance: "",
-      average: "",
-    });
   };
 
   return (
@@ -71,14 +56,10 @@ const Root = () => {
           >
             <Switch>
               <Route path="/" exact>
-                <DashboardView usersList={usersList} deleteUser={deleteUser} />
+                <DashboardView />
               </Route>
               <Route path="/add-user">
-                <AddNewUserView
-                  formStates={formStates}
-                  handleInputChange={handleInputChange}
-                  handleAddUser={handleAddUser}
-                />
+                <AddNewUserView />
               </Route>
             </Switch>
           </UsersContext.Provider>

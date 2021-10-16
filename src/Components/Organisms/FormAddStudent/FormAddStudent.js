@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Wrapper } from "../../Organisms/UsersList/UsersList.styles";
 import FormField from "../../Molecules/FormField/FormField";
 import { Button } from "../../Atoms/Button/Button.styled";
+import { UsersContext } from "../../../Views/Root";
 
-const FormAddStudent = ({ formStates, handleInputChange, handleAddUser }) => {
+const FormAddStudent = () => {
+  const context = useContext(UsersContext);
+
+  const [formStates, setFormStates] = useState({
+    name: "",
+    attendance: "",
+    average: "",
+  });
+
+  const handleInputChange = (e) => {
+    setFormStates({
+      ...formStates,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmitUser = (e) => {
+    e.preventDefault();
+    context.handleAddUser(formStates);
+
+    setFormStates({
+      name: "",
+      attendance: "",
+      average: "",
+    });
+  };
+
   return (
     <Wrapper as="form">
       <h1>Add Student</h1>
@@ -28,7 +55,7 @@ const FormAddStudent = ({ formStates, handleInputChange, handleAddUser }) => {
         value={formStates.average}
         onChange={handleInputChange}
       />
-      <Button type="submit" onClick={handleAddUser}>
+      <Button type="submit" onClick={handleSubmitUser}>
         ADD
       </Button>
     </Wrapper>
