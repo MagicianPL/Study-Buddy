@@ -13,4 +13,8 @@ export const Wrapper = styled.li`
     height: 1px;
     background-color: lightgrey;
   }
+  
+  & button:hover {
+	  cursor: pointer;
+  }
 `;
