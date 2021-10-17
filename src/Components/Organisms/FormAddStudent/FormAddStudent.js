@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useReducer } from "react";
 import { Wrapper } from "../../Organisms/UsersList/UsersList.styles";
 import FormField from "../../Molecules/FormField/FormField";
 import { Button } from "../../Atoms/Button/Button.styled";
@@ -7,17 +7,32 @@ import { UsersContext } from "../../../Providers/UsersProvider";
 const FormAddStudent = () => {
   const context = useContext(UsersContext);
 
-  //in fact - input states
-  const [formStates, setFormStates] = useState({
+  const initialState = {
     name: "",
     attendance: "",
     average: "",
-  });
+  };
+
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "INPUTCHANGE":
+        return { ...state, [action.name]: action.value };
+
+      case "CLEARVALUES":
+        return initialState;
+
+      default:
+        return state;
+    }
+  };
+
+  const [formStates, dispatch] = useReducer(reducer, initialState);
 
   const handleInputChange = (e) => {
-    setFormStates({
-      ...formStates,
-      [e.target.name]: e.target.value,
+    dispatch({
+      type: "INPUTCHANGE",
+      name: e.target.name,
+      value: e.target.value,
     });
   };
 
@@ -26,11 +41,7 @@ const FormAddStudent = () => {
     //from context i'm getting function which will add user - it takes argument (values from inputs)
     context.handleAddUser(formStates);
     //clear all inputs
-    setFormStates({
-      name: "",
-      attendance: "",
-      average: "",
-    });
+    dispatch({ type: "CLEARVALUES" });
   };
 
   return (
