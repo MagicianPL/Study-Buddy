@@ -32,8 +32,10 @@ const Nav = styled.nav`
   align-self: stretch;
   width: 150px;
   max-width: 100%;
-  border-right: 1px solid #dfe2e8;
+  border-right: 1px solid ${({ theme }) => theme.colors.darkPurple};
   background-color: #e5e5e5;
+  grid-row: 1 / 3;
+  grid-column: 1 / 3;
 
   ul {
     width: 100%;
