@@ -11,13 +11,13 @@ import UsersProvider from "../Providers/UsersProvider";
 const SearchBar = styled.div`
   grid-column: 2/3;
   grid-row: 1/2;
-  border: 1px solid ${({ theme }) => theme.colors.darkPurple};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.darkPurple};
 `;
 
 const News = styled.div`
   grid-column: 3/3;
-  grid-row: 2/2;
-  border: 1px solid ${({ theme }) => theme.colors.darkPurple};
+  grid-row: 1/3;
+  border-left: 1px solid ${({ theme }) => theme.colors.darkPurple};
 `;
 
 const Wrapper = styled.div`
@@ -48,7 +48,12 @@ const Root = () => {
               </Route>
             </Switch>
           </UsersProvider>
-          <News />
+          <News><p>Lorem Ipsum</p>
+          <p>Lorem Ipsum</p>
+          <p>Lorem Ipsum</p>
+          <p>Lorem Ipsum</p>
+          <p>Lorem Ipsum</p>
+          </News>
         </Wrapper>
       </ThemeProvider>
     </Router>
