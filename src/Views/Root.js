@@ -12,9 +12,10 @@ const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGrey};
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: start;
+  display: grid;
+  grid-template-columns: 150px 1fr 0.75fr;
+  grid-template-rows: 90px 1fr;
+  background-color: ${({ theme }) => theme.colors.lightGrey};
 `;
 
 const Root = () => {
