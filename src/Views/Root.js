@@ -8,6 +8,18 @@ import DashboardView from "./DashboardView";
 import AddNewUserView from "./AddNewUserView";
 import UsersProvider from "../Providers/UsersProvider";
 
+const SearchBar = styled.div`
+  grid-column: 2/3;
+  grid-row: 1/2;
+  border: 1px solid ${({ theme }) => theme.colors.darkPurple};
+`;
+
+const News = styled.div`
+  grid-column: 3/3;
+  grid-row: 2/2;
+  border: 1px solid ${({ theme }) => theme.colors.darkPurple};
+`;
+
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGrey};
   width: 100%;
@@ -25,6 +37,7 @@ const Root = () => {
         <GlobalStyles />
         <Wrapper>
           <Navigation />
+          <SearchBar />
           <UsersProvider>
             <Switch>
               <Route path="/" exact>
@@ -35,6 +48,7 @@ const Root = () => {
               </Route>
             </Switch>
           </UsersProvider>
+          <News />
         </Wrapper>
       </ThemeProvider>
     </Router>
