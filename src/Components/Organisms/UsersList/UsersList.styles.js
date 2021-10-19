@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   margin: 20px auto;
   grid-column: 2/3;
   grid-row: 2/2;
+  align-self: start;
 `;
 
 export const StyledList = styled.ul`
