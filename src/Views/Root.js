@@ -4,16 +4,11 @@ import { GlobalStyles } from "../Assets/styles/GlobalStyles";
 import { theme } from "../Assets/styles/theme";
 import News from "../Components/Organisms/News/News";
 import Navigation from "../Components/Organisms/Navigation/Navigation.styled";
+import SearchBar from "../Components/Organisms/SearchBar/SearchBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DashboardView from "./DashboardView";
 import AddNewUserView from "./AddNewUserView";
 import UsersProvider from "../Providers/UsersProvider";
-
-const SearchBar = styled.div`
-  grid-column: 2/2;
-  grid-row: 1/1;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.darkPurple};
-`;
 
 
 
@@ -34,7 +29,9 @@ const Root = () => {
         <GlobalStyles />
         <Wrapper>
           <Navigation />
-          <SearchBar />
+          <SearchBar>
+            
+          </SearchBar>
           <UsersProvider>
             <Switch>
               <Route path="/" exact>
