@@ -2,6 +2,7 @@ import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../Assets/styles/GlobalStyles";
 import { theme } from "../Assets/styles/theme";
+import News from "../Components/Organisms/News/News";
 import Navigation from "../Components/Organisms/Navigation/Navigation.styled";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DashboardView from "./DashboardView";
@@ -9,16 +10,12 @@ import AddNewUserView from "./AddNewUserView";
 import UsersProvider from "../Providers/UsersProvider";
 
 const SearchBar = styled.div`
-  grid-column: 2/3;
-  grid-row: 1/2;
+  grid-column: 2/2;
+  grid-row: 1/1;
   border-bottom: 1px solid ${({ theme }) => theme.colors.darkPurple};
 `;
 
-const News = styled.div`
-  grid-column: 3/3;
-  grid-row: 1/3;
-  border-left: 1px solid ${({ theme }) => theme.colors.darkPurple};
-`;
+
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGrey};
@@ -48,11 +45,12 @@ const Root = () => {
               </Route>
             </Switch>
           </UsersProvider>
-          <News><p>Lorem Ipsum</p>
-          <p>Lorem Ipsum</p>
-          <p>Lorem Ipsum</p>
-          <p>Lorem Ipsum</p>
-          <p>Lorem Ipsum</p>
+          <News>
+            <p>Lorem Ipsum</p>
+            <p>Lorem Ipsum</p>
+            <p>Lorem Ipsum</p>
+            <p>Lorem Ipsum</p>
+            <p>Lorem Ipsum</p>
           </News>
         </Wrapper>
       </ThemeProvider>
