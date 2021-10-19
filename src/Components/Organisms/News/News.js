@@ -3,6 +3,30 @@ import styled from "styled-components";
 import { Button } from "../../Atoms/Button/Button.styled";
 import { OneNews } from "../../Molecules/OneNews/OneNews.styled";
 
+const news = [
+  {
+    title: "This is TITLE",
+    category: "News",
+    content:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet lectus sodales, vulputate quam non, elementum mauris. Proin consectetur aliquam purus, facilisis fringilla erat iaculis id. Aliquam erat volutpat. Aenean auctor sapien laoreet risus.',
+    image: null,
+  },
+  {
+    title: "This is TITLE",
+    category: "people",
+    content:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet lectus sodales, vulputate quam non, elementum mauris.',
+    image: null,
+  },
+  {
+    title: "This is TITLE",
+    category: "News bla bla",
+    content:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet lectus sodales, vulputate quam non, elementum mauris. Proin consectetur aliquam purus, facilisis fringilla erat iaculis id. Aliquam erat volutpat. Aenean auctor sapien laoreet risus.',
+    image: null,
+  },
+];
+
 const NewsSection = styled.div`
   grid-column: 3/3;
   grid-row: 1/3;
@@ -32,28 +56,16 @@ const News = () => {
         </p>
         <Button>Read more</Button>
       </OneNews>
-      <OneNews>
-        <h1>New computers for all lecturers</h1>
-        <h2>Staff news</h2>
+      {news.map(({title, category, content, image})=> (
+        <OneNews>
+        <h1>{title}</h1>
+        <h2>{category}</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit
-          amet lectus sodales, vulputate quam non, elementum mauris. Proin
-          consectetur aliquam purus, facilisis fringilla erat iaculis id.
-          Aliquam erat volutpat. Aenean auctor sapien laoreet risus.
+          {content}
         </p>
         <Button>Read more</Button>
       </OneNews>
-      <OneNews>
-        <h1>New computers for all lecturers</h1>
-        <h2>Staff news</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit
-          amet lectus sodales, vulputate quam non, elementum mauris. Proin
-          consectetur aliquam purus, facilisis fringilla erat iaculis id.
-          Aliquam erat volutpat. Aenean auctor sapien laoreet risus.
-        </p>
-        <Button>Read more</Button>
-      </OneNews>
+      ))}
     </NewsSection>
   );
 };
