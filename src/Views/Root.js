@@ -42,13 +42,7 @@ const Root = () => {
               </Route>
             </Switch>
           </UsersProvider>
-          <News>
-            <p>Lorem Ipsum</p>
-            <p>Lorem Ipsum</p>
-            <p>Lorem Ipsum</p>
-            <p>Lorem Ipsum</p>
-            <p>Lorem Ipsum</p>
-          </News>
+          <News />
         </Wrapper>
       </ThemeProvider>
     </Router>

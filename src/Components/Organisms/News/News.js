@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Button } from "../../Atoms/Button/Button.styled";
 import { OneNews } from "../../Molecules/OneNews/OneNews.styled";
-import {news} from "../../../Data/NewsArray";
+import { news } from "../../../Data/NewsArray";
 
 const NewsSection = styled.div`
   grid-column: 3/3;
@@ -15,6 +15,17 @@ const NewsSection = styled.div`
     weight: 700;
     font-size: 20px;
     margin-bottom: 16px;
+  }
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  img {
+    max-width: 50%;
+    margin-left: 15px;
   }
 `;
 
@@ -33,15 +44,16 @@ const News = () => {
         </p>
         <Button>Read more</Button>
       </OneNews>
-      {news.map(({title, category, content, image})=> (
+      {news.map(({ title, category, content, image = null }) => (
         <OneNews>
-        <h1>{title}</h1>
-        <h2>{category}</h2>
-        <p>
-          {content}
-        </p>
-        <Button>Read more</Button>
-      </OneNews>
+          <h1>{title}</h1>
+          <h2>{category}</h2>
+          <ContentWrapper>
+            <p>{content}</p>
+            {image ? <img src={image} alt="news image" /> : null}
+          </ContentWrapper>
+          <Button>Read more</Button>
+        </OneNews>
       ))}
     </NewsSection>
   );
