@@ -1,3 +1,5 @@
+import photo from "../Assets/images/coding.jpg";
+
 export const news = [
     {
       title: "This is TITLE",
@@ -11,7 +13,7 @@ export const news = [
       category: "people",
       content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet lectus sodales, vulputate quam non, elementum mauris.',
-      image: null,
+      image: photo,
     },
     {
       title: "This is TITLE",

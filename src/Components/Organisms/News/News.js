@@ -20,6 +20,17 @@ const NewsSection = styled.div`
   }
 `;
 
+const ContentWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  img {
+    max-width: 50%;
+    margin-left: 15px;
+  }
+`;
+
 const News = () => {
   return (
     <NewsSection>
@@ -35,11 +46,14 @@ const News = () => {
         </p>
         <Button>Read more</Button>
       </OneNews>
-      {news.map(({ title, category, content, image }) => (
+      {news.map(({ title, category, content, image = null }) => (
         <OneNews>
           <h1>{title}</h1>
           <h2>{category}</h2>
-          <p>{content}</p>
+          <ContentWrapper>
+            <p>{content}</p>
+            {image ? <img src={image} alt="news image" /> : null}
+          </ContentWrapper>
           <Button>Read more</Button>
         </OneNews>
       ))}
