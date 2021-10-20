@@ -32,8 +32,11 @@ describe("InputWithButton", () => {
 
   it("properly handles value change", () => {
     render(<InputWithButton />);
+    const button = screen.getByText("SUBMIT");
+    expect(button).toBeDisabled();
     const input = screen.getByPlaceholderText("Enter your name");
     fireEvent.change(input, { target: { value: "Roman" } });
     expect(input).toHaveValue("Roman");
+    expect(button).not.toBeDisabled();
   });
 });
