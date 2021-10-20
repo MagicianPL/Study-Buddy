@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   box-shadow: 0 5px 15px -10px rgba(0, 0, 0, 0.3);
   margin: 20px auto;
   grid-column: 2/3;
-  grid-row: 2/2;
+  grid-row: 2/3;
   align-self: start;
 `;
 

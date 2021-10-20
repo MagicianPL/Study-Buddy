@@ -10,8 +10,6 @@ import DashboardView from "./DashboardView";
 import AddNewUserView from "./AddNewUserView";
 import UsersProvider from "../Providers/UsersProvider";
 
-
-
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGrey};
   width: 100%;
@@ -29,9 +27,7 @@ const Root = () => {
         <GlobalStyles />
         <Wrapper>
           <Navigation />
-          <SearchBar>
-            
-          </SearchBar>
+          <SearchBar />
           <UsersProvider>
             <Switch>
               <Route path="/" exact>
@@ -42,13 +38,7 @@ const Root = () => {
               </Route>
             </Switch>
           </UsersProvider>
-          <News>
-            <p>Lorem Ipsum</p>
-            <p>Lorem Ipsum</p>
-            <p>Lorem Ipsum</p>
-            <p>Lorem Ipsum</p>
-            <p>Lorem Ipsum</p>
-          </News>
+          <News />
         </Wrapper>
       </ThemeProvider>
     </Router>

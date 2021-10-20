@@ -2,13 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { Button } from "../../Atoms/Button/Button.styled";
 import { OneNews } from "../../Molecules/OneNews/OneNews.styled";
-import {news} from "../../../Data/NewsArray";
+import { news } from "../../../Data/NewsArray";
 
 const NewsSection = styled.div`
-  grid-column: 3/3;
+  grid-column: 3/4;
   grid-row: 1/3;
   border-left: 1px solid ${({ theme }) => theme.colors.darkPurple};
   padding: 30px 45px;
+  display: flex;
+  flex-direction: column;
 
   & > h1 {
     color: ${({ theme }) => theme.colors.darkGrey};
@@ -33,15 +35,13 @@ const News = () => {
         </p>
         <Button>Read more</Button>
       </OneNews>
-      {news.map(({title, category, content, image})=> (
+      {news.map(({ title, category, content, image }) => (
         <OneNews>
-        <h1>{title}</h1>
-        <h2>{category}</h2>
-        <p>
-          {content}
-        </p>
-        <Button>Read more</Button>
-      </OneNews>
+          <h1>{title}</h1>
+          <h2>{category}</h2>
+          <p>{content}</p>
+          <Button>Read more</Button>
+        </OneNews>
       ))}
     </NewsSection>
   );
