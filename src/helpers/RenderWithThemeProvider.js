@@ -6,3 +6,5 @@ import { ThemeProvider } from 'styled-components';
 const RenderWithThemeProvider = (component) => {
     return render(<ThemeProvider theme={theme}>component</ThemeProvider>)
 };
+
+export default RenderWithThemeProvider;
