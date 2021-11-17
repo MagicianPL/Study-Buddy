@@ -52,7 +52,7 @@ const News = () => {
           <h2>{category}</h2>
           <ContentWrapper>
             <p>{content}</p>
-            {image ? <img src={image} alt="news image" /> : null}
+            {image ? <img src={image} alt="news" /> : null}
           </ContentWrapper>
           <Button>Read more</Button>
         </OneNews>
