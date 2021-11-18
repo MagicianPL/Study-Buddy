@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Button } from "../../Atoms/Button/Button.styled";
 import { OneNews } from "../../Molecules/OneNews/OneNews.styled";
 import { news } from "../../../Data/NewsArray";
+import axios from "axios";
+
+const API_TOKEN = "61c78433c6bab1c060f9a7e1a491c3";
 
 const NewsSection = styled.div`
   grid-column: 3/4;
@@ -32,6 +35,39 @@ const ContentWrapper = styled.div`
 `;
 
 const News = () => {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    axios
+      .post(
+        "https://graphql.datocms.com/",
+        {
+          query: `
+      {
+        allArticles{
+          id
+          title
+          category
+          content
+          image {
+            url
+          }
+        }
+      }
+      `,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${API_TOKEN}`,
+          },
+        }
+      )
+      .then(({ data: { data } }) => {
+        setArticles(data.allArticles);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <NewsSection>
       <h1>University news feed</h1>
@@ -46,17 +82,19 @@ const News = () => {
         </p>
         <Button>Read more</Button>
       </OneNews>
-      {news.map(({ title, category, content, image = null }) => (
-        <OneNews>
-          <h1>{title}</h1>
-          <h2>{category}</h2>
-          <ContentWrapper>
-            <p>{content}</p>
-            {image ? <img src={image} alt="news" /> : null}
-          </ContentWrapper>
-          <Button>Read more</Button>
-        </OneNews>
-      ))}
+      {articles.length > 0
+        ? articles.map(({ id, title, category, content, image = null }) => (
+            <OneNews key={id}>
+              <h1>{title}</h1>
+              <h2>{category}</h2>
+              <ContentWrapper>
+                <p>{content}</p>
+                {image ? <img src={image.url} alt="news" /> : null}
+              </ContentWrapper>
+              <Button>Read more</Button>
+            </OneNews>
+          ))
+        : "Loading..."}
     </NewsSection>
   );
 };
