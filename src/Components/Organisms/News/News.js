@@ -36,6 +36,7 @@ const ContentWrapper = styled.div`
 
 const News = () => {
   const [articles, setArticles] = useState([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     axios
@@ -64,14 +65,15 @@ const News = () => {
       )
       .then(({ data: { data } }) => {
         setArticles(data.allArticles);
+        console.log(data);
       })
-      .catch((err) => console.log(err));
+      .catch(() => setError("Sorry, we couldn't load articles for you"));
   }, []);
 
   return (
     <NewsSection>
       <h1>University news feed</h1>
-      <OneNews>
+      {/*<OneNews>
         <h1>New computers for all lecturers</h1>
         <h2>Staff news</h2>
         <p>
@@ -81,7 +83,7 @@ const News = () => {
           Aliquam erat volutpat. Aenean auctor sapien laoreet risus.
         </p>
         <Button>Read more</Button>
-      </OneNews>
+      </OneNews>*/}
       {articles.length > 0
         ? articles.map(({ id, title, category, content, image = null }) => (
             <OneNews key={id}>
@@ -95,6 +97,7 @@ const News = () => {
             </OneNews>
           ))
         : "Loading..."}
+      {error ? error : null}
     </NewsSection>
   );
 };
