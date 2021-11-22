@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Button } from "../../Atoms/Button/Button.styled";
 import { OneNews } from "../../Molecules/OneNews/OneNews.styled";
-import { news } from "../../../Data/NewsArray";
 import axios from "axios";
 
 const API_TOKEN = "61c78433c6bab1c060f9a7e1a491c3";
