@@ -70,7 +70,7 @@ const Navigation = () => {
       </LogoStyled>
       <ul>
         <li>
-          <StyledLink to="/" exact>
+          <StyledLink to="/group" exact>
             Dashboard
           </StyledLink>
         </li>

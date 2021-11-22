@@ -1,22 +1,19 @@
-import React, { useContext } from "react";
-import { UsersContext } from "../../../Providers/UsersProvider";
+import React from "react";
 import UserItemList from "../../Molecules/UserItemList/UserItemList";
 import { Wrapper, StyledList } from "./UsersList.styles";
 
-const UsersList = () => {
-  const context = useContext(UsersContext);
-
+const UsersList = ({ usersList = [] }) => {
   return (
-    
-      <Wrapper>
-        <h1>Students List</h1>
-        <StyledList>
-          {context.usersList.map((userData, index) => (
-            <UserItemList userData={userData} key={userData.name} />
-          ))}
-        </StyledList>
-      </Wrapper>
-    
+    <Wrapper>
+      <h1>Students List</h1>
+      <StyledList>
+        {usersList.length
+          ? usersList.map((userData, index) => (
+              <UserItemList userData={userData} key={userData.name} />
+            ))
+          : null}
+      </StyledList>
+    </Wrapper>
   );
 };
 
