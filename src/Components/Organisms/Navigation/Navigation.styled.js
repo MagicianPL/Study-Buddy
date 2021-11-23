@@ -34,7 +34,7 @@ const Nav = styled.nav`
   max-width: 100%;
   border-right: 1px solid ${({ theme }) => theme.colors.darkPurple};
   background-color: #e5e5e5;
-  grid-row: 1 / 3;
+  grid-row: 1 / 4;
   grid-column: 1 / 2;
 
   ul {

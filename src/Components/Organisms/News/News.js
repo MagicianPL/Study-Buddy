@@ -8,7 +8,7 @@ const API_TOKEN = "61c78433c6bab1c060f9a7e1a491c3";
 
 const NewsSection = styled.div`
   grid-column: 3/4;
-  grid-row: 1/3;
+  grid-row: 1/4;
   border-left: 1px solid ${({ theme }) => theme.colors.darkPurple};
   padding: 30px 45px;
   display: flex;
