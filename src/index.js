@@ -4,7 +4,7 @@ import "./index.css";
 import Root from "./Views/Root";
 import { worker } from "./mocks/browser";
 
-worker.start();
+worker.start({ onUnhandledRequest: "bypass" });
 
 ReactDOM.render(
   <React.StrictMode>
