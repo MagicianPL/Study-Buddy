@@ -37,7 +37,7 @@ const Root = () => {
             <Route exact path="/">
               <Redirect to="/group" />
             </Route>
-            <Route path="/group/:id">
+            <Route path="/group/:id?">
               <DashboardView />
             </Route>
             <Route path="/add-user">
